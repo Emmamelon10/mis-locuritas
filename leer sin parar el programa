@@ -1,0 +1,24 @@
+#include<iostream>
+#include <conio.h>
+#include<stdio.h>
+int main(){
+     char c = 0;
+     int x = 0;
+     while (c != 's'){  //condición modificable
+           printf("%d\n",c);  //imprimir el numero leído por  el getch() (funciona aunque este despues)
+           x++;
+          if (kbhit())    //kbhit() es un booleano que se activa solo cuando el teclado manda una señal
+          {  
+		      c = getch(); //getch() permite leer que señal mando el teclado
+          }
+          if (x == 10 || c == 'a') 
+          {
+            x = 0;    //reinicia la cuenta
+          }
+}
+return 0;    //final del programa
+}
+
+/*en resumen el programa si se interrumpe, solo que con kbhit() ese tiempo de "pausa" se minimiza a un plazo que el usuario no llega a notar :D
+°usado en el tetris
+*/
