@@ -1,0 +1,161 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+typedef struct {
+    char nombre[20];
+    int hambre;
+    int energia;
+    int felicidad;
+    int forma; // Variable para almacenar la forma actual de la mascota
+} Tamagotchi;
+
+void imprimirForma(int forma) {
+    switch (forma) {
+        case 0:
+            printf("Forma: Normal\n");
+            printf("     __\n");
+            printf(" _  ( o>\n");
+            printf("(_) / )\n");
+            printf("   (_/\n");
+            break;
+        case 1:
+            printf("Forma: Feliz\n");
+            printf("    \\^/\n");
+            printf("   (='.'=)\n");
+            printf("   c   c\n");
+            break;
+        case 2:
+            printf("Forma: Hambriento\n");
+            printf("    .-.\n");
+            printf("   |o o|\n");
+            printf("   |_-_|\n");
+            printf("   | | |\n");
+            break;
+        case 3:
+            printf("Forma: Cansado\n");
+            printf("    .--.\n");
+            printf("   |ZZzz|\n");
+            printf("   |_--_|\n");
+            printf("   |__-|\n");
+            break;
+        default:
+            printf("Forma: Desconocida\n");
+            printf("     \\_/\n");
+            printf("   (>'.'<)\n");
+            printf("   (\"!)(!\")\n");
+            printf("    ^^^ ^^^\n");
+            break;
+    }
+}
+
+void alimentar(Tamagotchi* tamagotchi) {
+    tamagotchi->hambre -= 10;
+    tamagotchi->energia += 5;
+    tamagotchi->felicidad += 2;
+    tamagotchi->forma = 1; // Cambia a la forma "Feliz" al alimentar
+    printf("%s se siente feliz después de comer.\n", tamagotchi->nombre);
+    imprimirForma(tamagotchi->forma);
+}
+
+void jugar(Tamagotchi* tamagotchi) {
+    tamagotchi->hambre += 5;
+    tamagotchi->energia -= 10;
+    tamagotchi->felicidad += 10;
+    tamagotchi->forma = 0; // Cambia a la forma "Normal" al jugar
+    printf("%s se divierte jugando contigo.\n", tamagotchi->nombre);
+    imprimirForma(tamagotchi->forma);
+}
+
+void dormir(Tamagotchi* tamagotchi) {
+    tamagotchi->energia += 15;
+    tamagotchi->felicidad += 5;
+    tamagotchi->forma = 3; // Cambia a la forma "Cansado" al dormir
+    printf("%s se queda dormido y recupera energía.\n", tamagotchi->nombre);
+    imprimirForma(tamagotchi->forma);
+}
+
+void expresion(Tamagotchi* tamagotchi) {
+    srand(time(NULL));
+    int expresion = rand() % 5;  // Genera un número aleatorio entre 0 y 4
+
+    switch (expresion) {
+        case 0:
+            printf("%s te sonríe.\n", tamagotchi->nombre);
+            break;
+        case 1:
+            printf("%s hace una mueca divertida.\n", tamagotchi->nombre);
+            break;
+        case 2:
+            printf("%s te mira curiosamente.\n", tamagotchi->nombre);
+            break;
+        case 3:
+            printf("%s salta de alegría.\n", tamagotchi->nombre);
+            break;
+        case 4:
+            printf("%s te da un pequeño abrazo.\n", tamagotchi->nombre);
+            break;
+        default:
+            printf("%s te muestra una expresión especial.\n", tamagotchi->nombre);
+            break;
+    }
+
+    imprimirForma(tamagotchi->forma);
+}
+
+int main() {
+    Tamagotchi miTamagotchi;
+
+    printf("¡Bienvenido a tu Tamagotchi!\n");
+    printf("Por favor, ingresa el nombre de tu Tamagotchi: ");
+    scanf("%s", miTamagotchi.nombre);
+
+    miTamagotchi.hambre = 50;
+    miTamagotchi.energia = 50;
+    miTamagotchi.felicidad = 50;
+    miTamagotchi.forma = 0; // Forma inicial: Normal
+
+    int opcion;
+
+    do {
+        printf("\n--- Menú ---\n");
+        printf("1. Alimentar\n");
+        printf("2. Jugar\n");
+        printf("3. Dormir\n");
+        printf("4. Expresión\n");
+        printf("5. Salir\n");
+
+        printf("\n%s\n", miTamagotchi.nombre);
+        printf("Hambre: %d\n", miTamagotchi.hambre);
+        printf("Energia: %d\n", miTamagotchi.energia);
+        imprimirForma(miTamagotchi.forma);
+
+        printf("\nElige una opción: ");
+        scanf("%d", &opcion);
+
+        switch (opcion) {
+            case 1:
+                alimentar(&miTamagotchi);
+                break;
+            case 2:
+                jugar(&miTamagotchi);
+                break;
+            case 3:
+                dormir(&miTamagotchi);
+                break;
+            case 4:
+                expresion(&miTamagotchi);
+                break;
+            case 5:
+                printf("\n¡Hasta luego!\n");
+                break;
+            default:
+                printf("\nOpción inválida. Por favor, intenta nuevamente.\n");
+                break;
+        }
+
+    } while (opcion != 5);
+
+    return 0;
+}
+//Este cogigo es de un compañero no mío, pero lo uso como practica para entender mejor las estrucutras y miembros(structs & members)
