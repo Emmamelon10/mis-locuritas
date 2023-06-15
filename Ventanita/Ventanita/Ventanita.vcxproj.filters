@@ -30,18 +30,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="resource.hm">
-      <Filter>Archivos de encabezado</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Pancito.jpg">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="Pancito.bmp">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="bitmap4.bmp">
+    <Image Include="bitmap1.bmp">
       <Filter>Archivos de recursos</Filter>
     </Image>
   </ItemGroup>

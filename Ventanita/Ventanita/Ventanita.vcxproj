@@ -120,7 +120,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -133,17 +133,10 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Ventanita.rc">
-      <DeploymentContent>true</DeploymentContent>
-    </ResourceCompile>
+    <ResourceCompile Include="Ventanita.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="resource.hm" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="bitmap4.bmp" />
-    <Image Include="Pancito.bmp" />
-    <Image Include="Pancito.jpg" />
+    <Image Include="bitmap1.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
