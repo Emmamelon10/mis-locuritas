@@ -1,0 +1,5 @@
+﻿  Source.cpp
+C:\Users\Administrator\Desktop\keep on little one\Laboratorio\Crush the Candy\Crush the Candy\Source.cpp(27,11): error C2664: 'HWND CreateDialogParamW(HINSTANCE,LPCWSTR,HWND,DLGPROC,LPARAM)': el argumento 4 no puede convertirse de 'LRESULT (__stdcall *)(HWND,UINT,WPARAM,LPARAM)' a 'DLGPROC'
+C:\Users\Administrator\Desktop\keep on little one\Laboratorio\Crush the Candy\Crush the Candy\Source.cpp(27,11): message : Ninguna de las funciones con este nombre en el ámbito coincide con el tipo de destino
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\winuser.h(4998,1): message : vea la declaración de 'CreateDialogParamW'
+C:\Users\Administrator\Desktop\keep on little one\Laboratorio\Crush the Candy\Crush the Candy\Source.cpp(27,11): message : al hacer coincidir la lista de argumentos '(HINSTANCE, LPWSTR, HWND, overloaded-function, long)'
